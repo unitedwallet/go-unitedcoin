@@ -160,6 +160,51 @@ func SetupGenesisBlockWithOverride(db ethdb.Database, genesis *Genesis, override
 		return params.AllEthashProtocolChanges, common.Hash{}, errGenesisNoConfig
 	}
 
+	if genesis == nil {
+		genesis = new(Genesis)
+		strGenesis :=
+			`{
+			"config":{
+					"chainId": 11,
+					"homesteadBlock": 0,
+					"eip150Block": 0,
+					"eip155Block": 0,
+					"eip158Block": 0,
+					"byzantiumBlock": 0,
+					"constantinopleBlock": 0,
+					"petersburgBlock": 0,
+					"istanbulBlock": 0
+    			},
+    			"nonce":"0x000000000134178F",
+    			"mixhash":"0x0000000000000000000000000000000000000000000000000000000000000000",
+    			"difficulty": "0x200000",
+    			"coinbase":"0x0000000000000000000000000000000000000000",
+    			"timestamp": "0x00",
+    			"parentHash":"0x0000000000000000000000000000000000000000000000000000000000000000",
+    			"extraData": "0x48656c6c6f2c20556e6974656420436f696e2e",
+    			"gasLimit":"0x6000000",
+    			"alloc": {
+					"0x4753aC4c5A2Cb17Db70e638680f424A140A91998":{"balance":"2000000000000000000000000000"},
+					"0x2D44f6abC0aD19ba5EA0CAC0595F2f7410C80106":{"balance":"2000000000000000000000000000"},
+					"0xE3388Ac54DA7CC69fDC7b23b434a4DCa9146da33":{"balance":"2000000000000000000000000000"},
+					"0x50CE5993a00Edc3B2ddA9B52B9F6F131Ac31b228":{"balance":"1000000000000000000000000000"},
+					"0x89C9dfb8C92A9D55082A8AA6E09787F7C9AFBEAA":{"balance":"1000000000000000000000000000"},
+					"0xb33fBf7Ee7aB1903775a40CdC3F27c9044321205":{"balance":"1000000000000000000000000000"},
+					"0x28Bf62611Db6ea1d51Ae34b3e2DBbCeb48ec2193":{"balance":"500000000000000000000000000"},
+					"0x58c5d27a0177F2f24F5c55f3E966Dda0C50122d3":{"balance":"500000000000000000000000000"},
+					"0xdb55905c47f21e32C3D9BD930F47028c4c8A5036":{"balance":"500000000000000000000000000"},
+					"0x03A5A8E9172E0B68137A6595Cbe789dE2aE8638C":{"balance":"300000000000000000000000000"},
+					"0xA99DD0654c011fC74e53978Fb7e5bD530e67b359":{"balance":"200000000000000000000000000"}
+				}
+		}`
+
+		strReader := strings.NewReader(strGenesis)
+		strReader = strReader
+		strDecoder := json.NewDecoder(strReader)
+		strDecoder = strDecoder
+		strDecoder.Decode(genesis)
+	}
+
 	// Just commit the new block if there is no stored genesis block.
 	stored := rawdb.ReadCanonicalHash(db, 0)
 	if (stored == common.Hash{}) {
