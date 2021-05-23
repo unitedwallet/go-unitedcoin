@@ -1,20 +1,20 @@
-// Copyright 2015 The go-unitedcoin Authors
-// This file is part of go-unitedcoin.
+// Copyright 2015 The go-ethereum Authors
+// This file is part of go-ethereum.
 //
-// go-unitedcoin is free software: you can redistribute it and/or modify
+// go-ethereum is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
 //
-// go-unitedcoin is distributed in the hope that it will be useful,
+// go-ethereum is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with go-unitedcoin. If not, see <http://www.gnu.org/licenses/>.
+// along with go-ethereum. If not, see <http://www.gnu.org/licenses/>.
 
-// Package utils contains internal helper functions for go-unitedcoin commands.
+// Package utils contains internal helper functions for go-ethereum commands.
 package utils
 
 import (
@@ -32,37 +32,37 @@ import (
 	"text/template"
 	"time"
 
-	"github.com/youfund/go-unitedcoin/accounts"
-	"github.com/youfund/go-unitedcoin/accounts/keystore"
-	"github.com/youfund/go-unitedcoin/common"
-	"github.com/youfund/go-unitedcoin/common/fdlimit"
-	"github.com/youfund/go-unitedcoin/consensus"
-	"github.com/youfund/go-unitedcoin/consensus/clique"
-	"github.com/youfund/go-unitedcoin/consensus/ethash"
-	"github.com/youfund/go-unitedcoin/core"
-	"github.com/youfund/go-unitedcoin/core/vm"
-	"github.com/youfund/go-unitedcoin/crypto"
-	"github.com/youfund/go-unitedcoin/dashboard"
-	"github.com/youfund/go-unitedcoin/eth"
-	"github.com/youfund/go-unitedcoin/eth/downloader"
-	"github.com/youfund/go-unitedcoin/eth/gasprice"
-	"github.com/youfund/go-unitedcoin/ethdb"
-	"github.com/youfund/go-unitedcoin/ethstats"
-	"github.com/youfund/go-unitedcoin/graphql"
-	"github.com/youfund/go-unitedcoin/les"
-	"github.com/youfund/go-unitedcoin/log"
-	"github.com/youfund/go-unitedcoin/metrics"
-	"github.com/youfund/go-unitedcoin/metrics/influxdb"
-	"github.com/youfund/go-unitedcoin/miner"
-	"github.com/youfund/go-unitedcoin/node"
-	"github.com/youfund/go-unitedcoin/p2p"
-	"github.com/youfund/go-unitedcoin/p2p/discv5"
-	"github.com/youfund/go-unitedcoin/p2p/enode"
-	"github.com/youfund/go-unitedcoin/p2p/nat"
-	"github.com/youfund/go-unitedcoin/p2p/netutil"
-	"github.com/youfund/go-unitedcoin/params"
-	"github.com/youfund/go-unitedcoin/rpc"
-	whisper "github.com/youfund/go-unitedcoin/whisper/whisperv6"
+	"github.com/ethereum/go-ethereum/accounts"
+	"github.com/ethereum/go-ethereum/accounts/keystore"
+	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/common/fdlimit"
+	"github.com/ethereum/go-ethereum/consensus"
+	"github.com/ethereum/go-ethereum/consensus/clique"
+	"github.com/ethereum/go-ethereum/consensus/ethash"
+	"github.com/ethereum/go-ethereum/core"
+	"github.com/ethereum/go-ethereum/core/vm"
+	"github.com/ethereum/go-ethereum/crypto"
+	"github.com/ethereum/go-ethereum/dashboard"
+	"github.com/ethereum/go-ethereum/eth"
+	"github.com/ethereum/go-ethereum/eth/downloader"
+	"github.com/ethereum/go-ethereum/eth/gasprice"
+	"github.com/ethereum/go-ethereum/ethdb"
+	"github.com/ethereum/go-ethereum/ethstats"
+	"github.com/ethereum/go-ethereum/graphql"
+	"github.com/ethereum/go-ethereum/les"
+	"github.com/ethereum/go-ethereum/log"
+	"github.com/ethereum/go-ethereum/metrics"
+	"github.com/ethereum/go-ethereum/metrics/influxdb"
+	"github.com/ethereum/go-ethereum/miner"
+	"github.com/ethereum/go-ethereum/node"
+	"github.com/ethereum/go-ethereum/p2p"
+	"github.com/ethereum/go-ethereum/p2p/discv5"
+	"github.com/ethereum/go-ethereum/p2p/enode"
+	"github.com/ethereum/go-ethereum/p2p/nat"
+	"github.com/ethereum/go-ethereum/p2p/netutil"
+	"github.com/ethereum/go-ethereum/params"
+	"github.com/ethereum/go-ethereum/rpc"
+	whisper "github.com/ethereum/go-ethereum/whisper/whisperv6"
 	pcsclite "github.com/gballet/go-libpcsclite"
 	cli "gopkg.in/urfave/cli.v1"
 )

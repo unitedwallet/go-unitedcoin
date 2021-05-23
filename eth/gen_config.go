@@ -6,13 +6,13 @@ import (
 	"math/big"
 	"time"
 
-	"github.com/youfund/go-unitedcoin/common"
-	"github.com/youfund/go-unitedcoin/consensus/ethash"
-	"github.com/youfund/go-unitedcoin/core"
-	"github.com/youfund/go-unitedcoin/eth/downloader"
-	"github.com/youfund/go-unitedcoin/eth/gasprice"
-	"github.com/youfund/go-unitedcoin/miner"
-	"github.com/youfund/go-unitedcoin/params"
+	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/consensus/ethash"
+	"github.com/ethereum/go-ethereum/core"
+	"github.com/ethereum/go-ethereum/eth/downloader"
+	"github.com/ethereum/go-ethereum/eth/gasprice"
+	"github.com/ethereum/go-ethereum/miner"
+	"github.com/ethereum/go-ethereum/params"
 )
 
 // MarshalTOML marshals as TOML.

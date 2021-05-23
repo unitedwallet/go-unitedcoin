@@ -1,18 +1,18 @@
-// Copyright 2019 The go-unitedcoin Authors
-// This file is part of go-unitedcoin.
+// Copyright 2019 The go-ethereum Authors
+// This file is part of go-ethereum.
 //
-// go-unitedcoin is free software: you can redistribute it and/or modify
+// go-ethereum is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
 //
-// go-unitedcoin is distributed in the hope that it will be useful,
+// go-ethereum is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with go-unitedcoin. If not, see <http://www.gnu.org/licenses/>.
+// along with go-ethereum. If not, see <http://www.gnu.org/licenses/>.
 
 // checkpoint-admin is a utility that can be used to query checkpoint information
 // and register stable checkpoints into an oracle contract.
@@ -22,9 +22,9 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/youfund/go-unitedcoin/cmd/utils"
-	"github.com/youfund/go-unitedcoin/common/fdlimit"
-	"github.com/youfund/go-unitedcoin/log"
+	"github.com/ethereum/go-ethereum/cmd/utils"
+	"github.com/ethereum/go-ethereum/common/fdlimit"
+	"github.com/ethereum/go-ethereum/log"
 	"gopkg.in/urfave/cli.v1"
 )
 

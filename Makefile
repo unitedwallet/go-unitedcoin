@@ -2,19 +2,19 @@
 # with Go source code. If you know what GOPATH is then you probably
 # don't need to bother with make.
 
-.PHONY: gun android ios gun-cross evm all test clean
-.PHONY: gun-linux gun-linux-386 gun-linux-amd64 gun-linux-mips64 gun-linux-mips64le
-.PHONY: gun-linux-arm gun-linux-arm-5 gun-linux-arm-6 gun-linux-arm-7 gun-linux-arm64
-.PHONY: gun-darwin gun-darwin-386 gun-darwin-amd64
-.PHONY: gun-windows gun-windows-386 gun-windows-amd64
+.PHONY: geth android ios geth-cross evm all test clean
+.PHONY: geth-linux geth-linux-386 geth-linux-amd64 geth-linux-mips64 geth-linux-mips64le
+.PHONY: geth-linux-arm geth-linux-arm-5 geth-linux-arm-6 geth-linux-arm-7 geth-linux-arm64
+.PHONY: geth-darwin geth-darwin-386 geth-darwin-amd64
+.PHONY: geth-windows geth-windows-386 geth-windows-amd64
 
 GOBIN = ./build/bin
 GO ?= latest
 
-gun:
-	build/env.sh go run build/ci.go install ./cmd/gun
+geth:
+	build/env.sh go run build/ci.go install ./cmd/geth
 	@echo "Done building."
-	@echo "Run \"$(GOBIN)/gun\" to launch gun."
+	@echo "Run \"$(GOBIN)/geth\" to launch geth."
 
 all:
 	build/env.sh go run build/ci.go install
@@ -22,7 +22,7 @@ all:
 android:
 	build/env.sh go run build/ci.go aar --local
 	@echo "Done building."
-	@echo "Import \"$(GOBIN)/gun.aar\" to use the library."
+	@echo "Import \"$(GOBIN)/geth.aar\" to use the library."
 
 ios:
 	build/env.sh go run build/ci.go xcode --local
@@ -54,92 +54,92 @@ devtools:
 
 # Cross Compilation Targets (xgo)
 
-gun-cross: gun-linux gun-darwin gun-windows gun-android gun-ios
+geth-cross: geth-linux geth-darwin geth-windows geth-android geth-ios
 	@echo "Full cross compilation done:"
-	@ls -ld $(GOBIN)/gun-*
+	@ls -ld $(GOBIN)/geth-*
 
-gun-linux: gun-linux-386 gun-linux-amd64 gun-linux-arm gun-linux-mips64 gun-linux-mips64le
+geth-linux: geth-linux-386 geth-linux-amd64 geth-linux-arm geth-linux-mips64 geth-linux-mips64le
 	@echo "Linux cross compilation done:"
-	@ls -ld $(GOBIN)/gun-linux-*
+	@ls -ld $(GOBIN)/geth-linux-*
 
-gun-linux-386:
-	build/env.sh go run build/ci.go xgo -- --go=$(GO) --targets=linux/386 -v ./cmd/gun
+geth-linux-386:
+	build/env.sh go run build/ci.go xgo -- --go=$(GO) --targets=linux/386 -v ./cmd/geth
 	@echo "Linux 386 cross compilation done:"
-	@ls -ld $(GOBIN)/gun-linux-* | grep 386
+	@ls -ld $(GOBIN)/geth-linux-* | grep 386
 
-gun-linux-amd64:
-	build/env.sh go run build/ci.go xgo -- --go=$(GO) --targets=linux/amd64 -v ./cmd/gun
+geth-linux-amd64:
+	build/env.sh go run build/ci.go xgo -- --go=$(GO) --targets=linux/amd64 -v ./cmd/geth
 	@echo "Linux amd64 cross compilation done:"
-	@ls -ld $(GOBIN)/gun-linux-* | grep amd64
+	@ls -ld $(GOBIN)/geth-linux-* | grep amd64
 
-gun-linux-arm: gun-linux-arm-5 gun-linux-arm-6 gun-linux-arm-7 gun-linux-arm64
+geth-linux-arm: geth-linux-arm-5 geth-linux-arm-6 geth-linux-arm-7 geth-linux-arm64
 	@echo "Linux ARM cross compilation done:"
-	@ls -ld $(GOBIN)/gun-linux-* | grep arm
+	@ls -ld $(GOBIN)/geth-linux-* | grep arm
 
-gun-linux-arm-5:
-	build/env.sh go run build/ci.go xgo -- --go=$(GO) --targets=linux/arm-5 -v ./cmd/gun
+geth-linux-arm-5:
+	build/env.sh go run build/ci.go xgo -- --go=$(GO) --targets=linux/arm-5 -v ./cmd/geth
 	@echo "Linux ARMv5 cross compilation done:"
-	@ls -ld $(GOBIN)/gun-linux-* | grep arm-5
+	@ls -ld $(GOBIN)/geth-linux-* | grep arm-5
 
-gun-linux-arm-6:
-	build/env.sh go run build/ci.go xgo -- --go=$(GO) --targets=linux/arm-6 -v ./cmd/gun
+geth-linux-arm-6:
+	build/env.sh go run build/ci.go xgo -- --go=$(GO) --targets=linux/arm-6 -v ./cmd/geth
 	@echo "Linux ARMv6 cross compilation done:"
-	@ls -ld $(GOBIN)/gun-linux-* | grep arm-6
+	@ls -ld $(GOBIN)/geth-linux-* | grep arm-6
 
-gun-linux-arm-7:
-	build/env.sh go run build/ci.go xgo -- --go=$(GO) --targets=linux/arm-7 -v ./cmd/gun
+geth-linux-arm-7:
+	build/env.sh go run build/ci.go xgo -- --go=$(GO) --targets=linux/arm-7 -v ./cmd/geth
 	@echo "Linux ARMv7 cross compilation done:"
-	@ls -ld $(GOBIN)/gun-linux-* | grep arm-7
+	@ls -ld $(GOBIN)/geth-linux-* | grep arm-7
 
-gun-linux-arm64:
-	build/env.sh go run build/ci.go xgo -- --go=$(GO) --targets=linux/arm64 -v ./cmd/gun
+geth-linux-arm64:
+	build/env.sh go run build/ci.go xgo -- --go=$(GO) --targets=linux/arm64 -v ./cmd/geth
 	@echo "Linux ARM64 cross compilation done:"
-	@ls -ld $(GOBIN)/gun-linux-* | grep arm64
+	@ls -ld $(GOBIN)/geth-linux-* | grep arm64
 
-gun-linux-mips:
-	build/env.sh go run build/ci.go xgo -- --go=$(GO) --targets=linux/mips --ldflags '-extldflags "-static"' -v ./cmd/gun
+geth-linux-mips:
+	build/env.sh go run build/ci.go xgo -- --go=$(GO) --targets=linux/mips --ldflags '-extldflags "-static"' -v ./cmd/geth
 	@echo "Linux MIPS cross compilation done:"
-	@ls -ld $(GOBIN)/gun-linux-* | grep mips
+	@ls -ld $(GOBIN)/geth-linux-* | grep mips
 
-gun-linux-mipsle:
-	build/env.sh go run build/ci.go xgo -- --go=$(GO) --targets=linux/mipsle --ldflags '-extldflags "-static"' -v ./cmd/gun
+geth-linux-mipsle:
+	build/env.sh go run build/ci.go xgo -- --go=$(GO) --targets=linux/mipsle --ldflags '-extldflags "-static"' -v ./cmd/geth
 	@echo "Linux MIPSle cross compilation done:"
-	@ls -ld $(GOBIN)/gun-linux-* | grep mipsle
+	@ls -ld $(GOBIN)/geth-linux-* | grep mipsle
 
-gun-linux-mips64:
-	build/env.sh go run build/ci.go xgo -- --go=$(GO) --targets=linux/mips64 --ldflags '-extldflags "-static"' -v ./cmd/gun
+geth-linux-mips64:
+	build/env.sh go run build/ci.go xgo -- --go=$(GO) --targets=linux/mips64 --ldflags '-extldflags "-static"' -v ./cmd/geth
 	@echo "Linux MIPS64 cross compilation done:"
-	@ls -ld $(GOBIN)/gun-linux-* | grep mips64
+	@ls -ld $(GOBIN)/geth-linux-* | grep mips64
 
-gun-linux-mips64le:
-	build/env.sh go run build/ci.go xgo -- --go=$(GO) --targets=linux/mips64le --ldflags '-extldflags "-static"' -v ./cmd/gun
+geth-linux-mips64le:
+	build/env.sh go run build/ci.go xgo -- --go=$(GO) --targets=linux/mips64le --ldflags '-extldflags "-static"' -v ./cmd/geth
 	@echo "Linux MIPS64le cross compilation done:"
-	@ls -ld $(GOBIN)/gun-linux-* | grep mips64le
+	@ls -ld $(GOBIN)/geth-linux-* | grep mips64le
 
-gun-darwin: gun-darwin-386 gun-darwin-amd64
+geth-darwin: geth-darwin-386 geth-darwin-amd64
 	@echo "Darwin cross compilation done:"
-	@ls -ld $(GOBIN)/gun-darwin-*
+	@ls -ld $(GOBIN)/geth-darwin-*
 
-gun-darwin-386:
-	build/env.sh go run build/ci.go xgo -- --go=$(GO) --targets=darwin/386 -v ./cmd/gun
+geth-darwin-386:
+	build/env.sh go run build/ci.go xgo -- --go=$(GO) --targets=darwin/386 -v ./cmd/geth
 	@echo "Darwin 386 cross compilation done:"
-	@ls -ld $(GOBIN)/gun-darwin-* | grep 386
+	@ls -ld $(GOBIN)/geth-darwin-* | grep 386
 
-gun-darwin-amd64:
-	build/env.sh go run build/ci.go xgo -- --go=$(GO) --targets=darwin/amd64 -v ./cmd/gun
+geth-darwin-amd64:
+	build/env.sh go run build/ci.go xgo -- --go=$(GO) --targets=darwin/amd64 -v ./cmd/geth
 	@echo "Darwin amd64 cross compilation done:"
-	@ls -ld $(GOBIN)/gun-darwin-* | grep amd64
+	@ls -ld $(GOBIN)/geth-darwin-* | grep amd64
 
-gun-windows: gun-windows-386 gun-windows-amd64
+geth-windows: geth-windows-386 geth-windows-amd64
 	@echo "Windows cross compilation done:"
-	@ls -ld $(GOBIN)/gun-windows-*
+	@ls -ld $(GOBIN)/geth-windows-*
 
-gun-windows-386:
-	build/env.sh go run build/ci.go xgo -- --go=$(GO) --targets=windows/386 -v ./cmd/gun
+geth-windows-386:
+	build/env.sh go run build/ci.go xgo -- --go=$(GO) --targets=windows/386 -v ./cmd/geth
 	@echo "Windows 386 cross compilation done:"
-	@ls -ld $(GOBIN)/gun-windows-* | grep 386
+	@ls -ld $(GOBIN)/geth-windows-* | grep 386
 
-gun-windows-amd64:
-	build/env.sh go run build/ci.go xgo -- --go=$(GO) --targets=windows/amd64 -v ./cmd/gun
+geth-windows-amd64:
+	build/env.sh go run build/ci.go xgo -- --go=$(GO) --targets=windows/amd64 -v ./cmd/geth
 	@echo "Windows amd64 cross compilation done:"
-	@ls -ld $(GOBIN)/gun-windows-* | grep amd64
+	@ls -ld $(GOBIN)/geth-windows-* | grep amd64

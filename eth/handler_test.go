@@ -1,18 +1,18 @@
-// Copyright 2015 The go-unitedcoin Authors
-// This file is part of the go-unitedcoin library.
+// Copyright 2015 The go-ethereum Authors
+// This file is part of the go-ethereum library.
 //
-// The go-unitedcoin library is free software: you can redistribute it and/or modify
+// The go-ethereum library is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Lesser General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
 //
-// The go-unitedcoin library is distributed in the hope that it will be useful,
+// The go-ethereum library is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 // GNU Lesser General Public License for more details.
 //
 // You should have received a copy of the GNU Lesser General Public License
-// along with the go-unitedcoin library. If not, see <http://www.gnu.org/licenses/>.
+// along with the go-ethereum library. If not, see <http://www.gnu.org/licenses/>.
 
 package eth
 
@@ -24,18 +24,18 @@ import (
 	"testing"
 	"time"
 
-	"github.com/youfund/go-unitedcoin/common"
-	"github.com/youfund/go-unitedcoin/consensus/ethash"
-	"github.com/youfund/go-unitedcoin/core"
-	"github.com/youfund/go-unitedcoin/core/rawdb"
-	"github.com/youfund/go-unitedcoin/core/state"
-	"github.com/youfund/go-unitedcoin/core/types"
-	"github.com/youfund/go-unitedcoin/core/vm"
-	"github.com/youfund/go-unitedcoin/crypto"
-	"github.com/youfund/go-unitedcoin/eth/downloader"
-	"github.com/youfund/go-unitedcoin/event"
-	"github.com/youfund/go-unitedcoin/p2p"
-	"github.com/youfund/go-unitedcoin/params"
+	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/consensus/ethash"
+	"github.com/ethereum/go-ethereum/core"
+	"github.com/ethereum/go-ethereum/core/rawdb"
+	"github.com/ethereum/go-ethereum/core/state"
+	"github.com/ethereum/go-ethereum/core/types"
+	"github.com/ethereum/go-ethereum/core/vm"
+	"github.com/ethereum/go-ethereum/crypto"
+	"github.com/ethereum/go-ethereum/eth/downloader"
+	"github.com/ethereum/go-ethereum/event"
+	"github.com/ethereum/go-ethereum/p2p"
+	"github.com/ethereum/go-ethereum/params"
 )
 
 // Tests that block headers can be retrieved from a remote chain based on user queries.

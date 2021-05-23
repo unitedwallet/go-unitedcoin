@@ -1,18 +1,18 @@
-// Copyright 2018 The go-unitedcoin Authors
-// This file is part of go-unitedcoin.
+// Copyright 2018 The go-ethereum Authors
+// This file is part of go-ethereum.
 //
-// go-unitedcoin is free software: you can redistribute it and/or modify
+// go-ethereum is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
 //
-// go-unitedcoin is distributed in the hope that it will be useful,
+// go-ethereum is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with go-unitedcoin. If not, see <http://www.gnu.org/licenses/>.
+// along with go-ethereum. If not, see <http://www.gnu.org/licenses/>.
 
 package main
 
@@ -24,10 +24,10 @@ import (
 	"testing"
 
 	"github.com/davecgh/go-spew/spew"
-	"github.com/youfund/go-unitedcoin/core"
+	"github.com/ethereum/go-ethereum/core"
 )
 
-// Tests the go-unitedcoin to Aleth chainspec conversion for the Stureby testnet.
+// Tests the go-ethereum to Aleth chainspec conversion for the Stureby testnet.
 func TestAlethSturebyConverter(t *testing.T) {
 	blob, err := ioutil.ReadFile("testdata/stureby_geth.json")
 	if err != nil {
@@ -66,7 +66,7 @@ func TestAlethSturebyConverter(t *testing.T) {
 	}
 }
 
-// Tests the go-unitedcoin to Parity chainspec conversion for the Stureby testnet.
+// Tests the go-ethereum to Parity chainspec conversion for the Stureby testnet.
 func TestParitySturebyConverter(t *testing.T) {
 	blob, err := ioutil.ReadFile("testdata/stureby_geth.json")
 	if err != nil {

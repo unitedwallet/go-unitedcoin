@@ -1,18 +1,18 @@
-// Copyright 2019 The go-unitedcoin Authors
-// This file is part of go-unitedcoin.
+// Copyright 2019 The go-ethereum Authors
+// This file is part of go-ethereum.
 //
-// go-unitedcoin is free software: you can redistribute it and/or modify
+// go-ethereum is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
 //
-// go-unitedcoin is distributed in the hope that it will be useful,
+// go-ethereum is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with go-unitedcoin. If not, see <http://www.gnu.org/licenses/>.
+// along with go-ethereum. If not, see <http://www.gnu.org/licenses/>.
 
 package main
 
@@ -25,17 +25,17 @@ import (
 	"strings"
 	"time"
 
-	"github.com/youfund/go-unitedcoin/accounts"
-	"github.com/youfund/go-unitedcoin/cmd/utils"
-	"github.com/youfund/go-unitedcoin/common"
-	"github.com/youfund/go-unitedcoin/common/hexutil"
-	"github.com/youfund/go-unitedcoin/contracts/checkpointoracle"
-	"github.com/youfund/go-unitedcoin/contracts/checkpointoracle/contract"
-	"github.com/youfund/go-unitedcoin/crypto"
-	"github.com/youfund/go-unitedcoin/ethclient"
-	"github.com/youfund/go-unitedcoin/log"
-	"github.com/youfund/go-unitedcoin/params"
-	"github.com/youfund/go-unitedcoin/rpc"
+	"github.com/ethereum/go-ethereum/accounts"
+	"github.com/ethereum/go-ethereum/cmd/utils"
+	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/common/hexutil"
+	"github.com/ethereum/go-ethereum/contracts/checkpointoracle"
+	"github.com/ethereum/go-ethereum/contracts/checkpointoracle/contract"
+	"github.com/ethereum/go-ethereum/crypto"
+	"github.com/ethereum/go-ethereum/ethclient"
+	"github.com/ethereum/go-ethereum/log"
+	"github.com/ethereum/go-ethereum/params"
+	"github.com/ethereum/go-ethereum/rpc"
 	"gopkg.in/urfave/cli.v1"
 )
 

@@ -39,7 +39,7 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/youfund/go-unitedcoin/crypto"
+	"github.com/ethereum/go-ethereum/crypto"
 )
 
 // Ensure the KDF generates appropriately sized keys.
